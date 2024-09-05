@@ -1,0 +1,54 @@
+1. 46 - SELECT COUNT(title) FROM film WHERE title LIKE 'A%';
+
+2. There are multiple - all 185 long: - SELECT title FROM film WHERE length = (SELECT MAX(length) FROM film);
+CHICAGO NORTH
+CONTROL ANTHEM
+DARN FORRESTER
+GANGS PRIDE
+HOME PITY
+MUSCLE BRIGHT
+POND SEATTLE
+SOLDIERS EVOLUTION
+SWEET BROTHERHOOD
+WORST BANGER
+
+
+3. There are multiple - all 46 long: - SELECT title FROM film WHERE length = (SELECT MIN(length) FROM film);
+ALIEN CENTER
+IRON MOON
+KWAI HOMEWARD
+LABYRINTH LEAGUE
+RIDGEMONT SUBMARINE
+
+4. 115.272 - SELECT AVG(length) FROM film;
+
+5. 0.99 - SELECT rental_rate FROM film GROUP BY rental_rate ORDER BY COUNT(rental_rate) DESC LIMIT 1;
+
+6. - SELECT rental_rate, COUNT(rental_rate) as cnt FROM film GROUP BY rental_rate;
+rental_rate  cnt
+-----------  ---
+0.99         341
+2.99         323
+4.99         336
+
+7. The database only has movies from the year 2006, so 2006. A query that calculates this regardless: 
+SELECT release_year, COUNT(release_year) as cnt FROM film GROUP BY release_year;
+
+8. ARACHNOPHOBIA ROLLERCOASTER - SELECT title FROM film WHERE LENGTH(title) = (SELECT MAX(LENGTH(title)) FROM film);
+
+9. - SELECT title FROM film ORDER BY LENGTH(title) DESC, title ASC LIMIT 10;
+ARACHNOPHOBIA ROLLERCOASTER
+SATISFACTION CONFIDENTIAL  
+DESPERATE TRAINSPOTTING    
+ENTRAPMENT SATISFACTION    
+EXTRAORDINARY CONQUERER    
+TRAINSPOTTING STRANGERS    
+CONFIDENTIAL INTERVIEW     
+CONNECTION MICROCOSMOS     
+DELIVERANCE MULHOLLAND     
+GOLDFINGER SENSIBILITY
+
+10. There are 0 movies with "after" in the title - SELECT title FROM film WHERE title LIKE '%after%';
+501 of the 1000 movies' titles have the same even/oddness as the length of their film title
+(i.e., the film_id value is even and the title length is even, or both are odd)
+SELECT COUNT(title) FROM film where film_id % 2 = LENGTH(title) % 2;
