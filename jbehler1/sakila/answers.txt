@@ -48,7 +48,9 @@ CONNECTION MICROCOSMOS
 DELIVERANCE MULHOLLAND     
 GOLDFINGER SENSIBILITY
 
-10. There are 0 movies with "after" in the title - SELECT title FROM film WHERE title LIKE '%after%';
+10.
+There are 0 movies with "after" in the title - SELECT title FROM film WHERE title LIKE '%after%';
+
 501 of the 1000 movies' titles have the same even/oddness as the length of their film title
 (i.e., the film_id value is even and the title length is even, or both are odd)
 SELECT COUNT(title) FROM film where film_id % 2 = LENGTH(title) % 2;

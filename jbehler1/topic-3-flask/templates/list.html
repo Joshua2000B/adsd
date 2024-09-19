@@ -1,0 +1,13 @@
+<!doctype HTML>
+
+<html>
+    <head></head>
+    <body>
+        <h1>This is the list template</h1>
+        <ol>
+            {% for result in results %}
+            <li><p>{{ result[0]}} - {{ result[1] }} is a {{ result[2] }} who is {{ result[3] }} years old and is owned by {{ result[4] }}. <a href="/delete/{{ result[0] }}">Delete</a> <a href="/update/{{ result[0] }}">Update</a></p></li>
+            {% endfor %}
+        </ol>
+    </body>
+</html>
